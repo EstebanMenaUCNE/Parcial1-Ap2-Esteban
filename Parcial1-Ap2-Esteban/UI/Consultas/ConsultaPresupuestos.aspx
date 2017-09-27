@@ -60,32 +60,30 @@
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col-xs-12 col-lg-2 d-inline-block">
                 <div class="form-group">
                     <asp:CheckBox ID="FiltrarFechaCheckBox" runat="server" OnCheckedChanged="FiltrarFechaCheckBox_CheckedChanged" />
                     <label for="FiltrarFechaCheckBox">Fitrar por fecha</label>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-5 d-inline-block">
+            <div class="col-xs-12 col-sm-4 d-inline-block">
                 <div class="form-group">
                     <label for="FechaDesdeTextBox">Desde</label>
                     <asp:TextBox type="date" CssClass="form-control" ID="FechaDesdeTextBox" runat="server" autocomplete="off"></asp:TextBox>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-5 d-inline-block">
+            <div class="col-xs-12 col-sm-4 d-inline-block">
                 <div class="form-group">
                     <label for="FechaHastaTextBox">Hasta</label>
                     <asp:TextBox type="date" CssClass="form-control" ID="FechaHastaTextBox" runat="server" autocomplete="off"></asp:TextBox>
                 </div>
             </div>
 
-            <div class="float-right">
+            <div class="col-xs-12 col-sm-1 d-inline-block">
                 <asp:Button CssClass="btn btn-primary" ID="BuscarButton" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
             </div>
-            <br />
-            <br />
             <br />
             <br />
 
@@ -148,13 +146,13 @@
                         <th class="bg-info">Descripción</th>
                         <th class="bg-info">Monto</th>
                         <th class="bg-info"></th>
-                        <th class="bg-info"><a class="btn btn-warning" href="../Reportes/ReporteUsuarios.aspx" id="ImprimirButton">Imprimir</a></th>
+                        <th class="bg-info"><a class="btn btn-warning" href="../Reportes/ReportePresupuestos.aspx" id="ImprimirButton">Imprimir</a></th>
                     </tr>
 
                     <!--Resultado de la consulta-->                          
                     <tbody id="listaF">
                         <% foreach (var presupuesto in Lista) %>
-                        <% { Response.Write("<tr class='fila'> <td>" + presupuesto.PresupuestoId + "</td> <td>" + presupuesto.Fecha.ToString().Substring(0,10) + "</td> <td>" + presupuesto.Descripcion + "</td> <td>" + presupuesto.Monto + "</td> <td> <button class='btn-modificar btn btn-sm btn-warning' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</button> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
+                        <% { Response.Write("<tr class='fila'> <td>" + presupuesto.PresupuestoId + "</td> <td>" + presupuesto.Fecha.ToString().Substring(0,10) + "</td> <td>" + presupuesto.Descripcion + "</td> <td>" + presupuesto.Monto + "</td> <td> <button class='btn-modificar btn btn-sm btn-success' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</button> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
                     </tbody>
                        
                     <tr>

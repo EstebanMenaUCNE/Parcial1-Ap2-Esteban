@@ -106,6 +106,7 @@ namespace Parcial1_Ap2_Esteban.UI.Registros
                     }
                     else
                     {
+                        //Recordar: Probar si es necesario
                         MensajeAlertaGuardadoExito.Text = "Repita los cambios realizados para modificar. Esto por la seguridad de los datos.";
                     }
                     AlertaGuardadoExito.Visible = true;

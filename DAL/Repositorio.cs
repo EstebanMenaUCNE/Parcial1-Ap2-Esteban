@@ -36,7 +36,6 @@ namespace DAL
             {
 
                 throw;
-                return false;
             }
         }
 
@@ -51,7 +50,6 @@ namespace DAL
             catch (Exception)
             {
                 throw;
-                return false;
             }
         }
 
@@ -67,7 +65,6 @@ namespace DAL
             {
 
                 throw;
-                return false;
             }
         }
 
@@ -81,7 +78,6 @@ namespace DAL
             {
 
                 throw;
-                return null;
             }
         }
 
@@ -95,7 +91,6 @@ namespace DAL
             {
 
                 throw;
-                return new List<TEntity>();
             }
         }
 

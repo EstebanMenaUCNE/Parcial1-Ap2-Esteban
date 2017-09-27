@@ -44,7 +44,7 @@
         <div class="col-xs-12 col-sm-4">
 
             <!--Alertas-->
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-7">
+            <div class="col-xs-12">
                 <asp:Panel id="AlertaGuardadoExito" class="alert alert-success text-center" role="alert" runat="server">
                     <asp:Label ID="MensajeAlertaGuardadoExito" runat="server">¡Guardado con éxito!</asp:Label>
                 </asp:Panel>
@@ -57,6 +57,7 @@
             </div>
             <br />
 
+            <!--Formulario-->
             <form id="form" runat="server">
                 <div class="text-center">
                     <h4><asp:Label CssClass="text-center" ID="NuevoOModificandoLabel" runat="server" Text="Nueva editorial"></asp:Label></h4>
