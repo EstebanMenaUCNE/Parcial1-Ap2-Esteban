@@ -87,6 +87,9 @@
   <ItemGroup>
     <Content Include="DataBase\ParcialDb.mdf" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Scripts.js" />
+    <Content Include="UI\Consultas\ConsultaPresupuestos.aspx" />
+    <Content Include="UI\Registros\RegistroPresupuestos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -99,14 +102,36 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\ConsultaPresupuestos.aspx.cs">
+      <DependentUpon>ConsultaPresupuestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaPresupuestos.aspx.designer.cs">
+      <DependentUpon>ConsultaPresupuestos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroPresupuestos.aspx.cs">
+      <DependentUpon>RegistroPresupuestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroPresupuestos.aspx.designer.cs">
+      <DependentUpon>RegistroPresupuestos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilidad.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Consultas\" />
     <Folder Include="Models\" />
-    <Folder Include="Registros\" />
-    <Folder Include="Reportes\" />
-    <Folder Include="UI\" />
+    <Folder Include="UI\Reportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{215A95F0-A3DD-4976-A5FC-457AB4AA4810}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{B23C962B-2762-4F78-997E-BE0E14A973A8}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
