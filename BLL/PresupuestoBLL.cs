@@ -21,7 +21,13 @@ namespace BLL
                 }
                 else
                 {
-                    return repositorio.Modificar(presupuesto);
+                    //return repositorio.Modificar(presupuesto);
+                    using (var context = new ParcialDb())
+                    {
+                        context.Presupuestos.Attach(presupuesto);
+                        context.Entry(presupuesto).State = System.Data.Entity.EntityState.Modified;
+                        return context.SaveChanges() > 0;
+                    }
                 }
             }
         }
