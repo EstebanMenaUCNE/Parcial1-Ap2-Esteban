@@ -164,7 +164,7 @@
                     <!--Resultado de la consulta-->                          
                     <tbody id="listaF">
                         <% foreach (var presupuesto in Lista) %>
-                        <% { Response.Write("<tr class='fila'> <td>" + presupuesto.PresupuestoId + "</td> <td>" + presupuesto.Fecha.ToString().Substring(0,10) + "</td> <td>" + presupuesto.Descripcion + "</td> <td>" + presupuesto.Monto + "</td> <td> <button class='btn-modificar btn btn-sm btn-success' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</button> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
+                        <% { Response.Write("<tr class='fila'> <td>" + presupuesto.PresupuestoId + "</td> <td>" + presupuesto.Fecha.ToString().Substring(0,10) + "</td> <td>" + presupuesto.Descripcion + "</td> <td> RD$ " + presupuesto.Monto + "</td> <td> <button class='btn-modificar btn btn-sm btn-success' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</button> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
                     </tbody>
                        
                     <tr>
