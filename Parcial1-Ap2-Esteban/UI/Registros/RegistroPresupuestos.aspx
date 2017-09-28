@@ -82,7 +82,9 @@
                     <asp:TextBox CssClass="form-control" ID="MontoTextBox" runat="server"></asp:TextBox>
                 </div>
                 <br />
-                <asp:Button CssClass="btn btn-success text-center" ID="GuardarButton" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
+                <div class="text-center">
+                    <asp:Button CssClass="btn btn-success" ID="GuardarButton" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
+                </div>
             </form>
         </div>
     </div>

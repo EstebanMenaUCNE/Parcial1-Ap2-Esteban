@@ -17,6 +17,8 @@ namespace Parcial1_Ap2_Esteban.UI.Consultas
         {
             Lista = new List<Presupuesto>();
             PresupuestoSeleccionado = null;
+            AlertaEliminadoExito.Visible = false;
+            AlertaError.Visible = false;
         }
 
         private void Filtrar()
@@ -74,8 +76,16 @@ namespace Parcial1_Ap2_Esteban.UI.Consultas
         {
             int id = Utilidad.ToInt(FilaTextBox.Text);
             PresupuestoSeleccionado = BLL.PresupuestoBLL.Buscar(P => P.PresupuestoId == id);
-            BLL.PresupuestoBLL.Eliminar(PresupuestoSeleccionado);
+            if (BLL.PresupuestoBLL.Eliminar(PresupuestoSeleccionado))
+            {
+                AlertaEliminadoExito.Visible = true;
+            }
+            else
+            {
+                AlertaError.Visible = true;
+            }
             PresupuestoSeleccionado = null;
+            
         }
 
         protected void ModificarButton_Click(object sender, EventArgs e)

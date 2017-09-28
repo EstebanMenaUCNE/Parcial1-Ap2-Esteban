@@ -45,6 +45,18 @@
     <br />
 
     <div class="container">
+
+        <!--Alertas-->
+        <div class="col-xs-12">
+            <asp:Panel id="AlertaEliminadoExito" class="alert alert-success text-center" role="alert" runat="server">
+                <asp:Label ID="MensajeAlertaEliminadoExito" runat="server">¡Eliminado con éxito!</asp:Label>
+            </asp:Panel>
+            <asp:Panel id="AlertaError" class="alert alert-danger text-center" role="alert" runat="server">
+                <asp:Label ID="MensajeAlertaError" runat="server">¡Algo salió mal!</asp:Label>
+            </asp:Panel>
+        </div>
+        <br />
+
         <form runat="server">
             <div class="col-xs-12 col-sm-4 d-inline-block">
                 <asp:DropDownList CssClass="form-control" ID="FiltrarDropDownList" runat="server">

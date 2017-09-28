@@ -13,6 +13,42 @@ namespace Parcial1_Ap2_Esteban.UI.Consultas {
     public partial class ConsultaPresupuestos {
         
         /// <summary>
+        /// AlertaEliminadoExito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel AlertaEliminadoExito;
+        
+        /// <summary>
+        /// MensajeAlertaEliminadoExito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MensajeAlertaEliminadoExito;
+        
+        /// <summary>
+        /// AlertaError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel AlertaError;
+        
+        /// <summary>
+        /// MensajeAlertaError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MensajeAlertaError;
+        
+        /// <summary>
         /// FiltrarDropDownList control.
         /// </summary>
         /// <remarks>
