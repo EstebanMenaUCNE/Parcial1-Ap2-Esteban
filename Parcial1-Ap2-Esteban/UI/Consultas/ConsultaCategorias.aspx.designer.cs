@@ -67,15 +67,6 @@ namespace Parcial1_Ap2_Esteban.UI.Consultas {
         protected global::System.Web.UI.WebControls.TextBox FiltrarTextBox;
         
         /// <summary>
-        /// FiltrarFechaCheckBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox FiltrarFechaCheckBox;
-        
-        /// <summary>
         /// BuscarButton control.
         /// </summary>
         /// <remarks>

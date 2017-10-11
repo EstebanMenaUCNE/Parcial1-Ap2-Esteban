@@ -76,12 +76,6 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-lg-2 d-inline-block">
-                <div class="form-group">
-                    <asp:CheckBox ID="FiltrarFechaCheckBox" runat="server" />
-                    <label for="FiltrarFechaCheckBox">Fitrar por fecha</label>
-                </div>
-            </div>
             
             <div class="col-xs-12 col-sm-1 d-inline-block">
                 <asp:Button CssClass="btn btn-primary" ID="BuscarButton" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
