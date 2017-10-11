@@ -137,7 +137,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="UI\Consultas\ConsultaCategorias.aspx" />
     <Content Include="UI\Consultas\ConsultaPresupuestos.aspx" />
+    <Content Include="UI\Registros\RegistroCategorias.aspx" />
     <Content Include="UI\Registros\RegistroPresupuestos.aspx" />
     <Content Include="UI\Reportes\ReportePresupuestos.aspx" />
     <Content Include="Web.config" />
@@ -158,12 +160,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UI\Consultas\ConsultaCategorias.aspx.cs">
+      <DependentUpon>ConsultaCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaCategorias.aspx.designer.cs">
+      <DependentUpon>ConsultaCategorias.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consultas\ConsultaPresupuestos.aspx.cs">
       <DependentUpon>ConsultaPresupuestos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI\Consultas\ConsultaPresupuestos.aspx.designer.cs">
       <DependentUpon>ConsultaPresupuestos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroCategorias.aspx.cs">
+      <DependentUpon>RegistroCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroCategorias.aspx.designer.cs">
+      <DependentUpon>RegistroCategorias.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\RegistroPresupuestos.aspx.cs">
       <DependentUpon>RegistroPresupuestos.aspx</DependentUpon>

@@ -27,6 +27,10 @@
         </div>
     </header>
 
+    <div class="fluid-container">
+        <a class="btn btn-danger float-right" href="../Registros/RegistroCategorias.aspx">Categorías</a>
+    </div>
+
     <nav>
         <ul class="nav nav-tabs">
             <li class="nav-item">
