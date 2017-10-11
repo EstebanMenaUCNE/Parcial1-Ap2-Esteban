@@ -64,7 +64,7 @@
             <!--Formulario-->
             <form id="form" runat="server">
                 <div class="text-center">
-                    <h4><asp:Label CssClass="text-center" ID="NuevoOModificandoLabel" runat="server" Text="Nueva editorial"></asp:Label></h4>
+                    <h4><asp:Label CssClass="text-center" ID="NuevoOModificandoLabel" runat="server" Text="Nueva categoría"></asp:Label></h4>
                 </div>
                 <asp:Button CssClass="btn btn-success float-right" ID="NuevoButton" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" />
                 <br />
