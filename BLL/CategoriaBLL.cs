@@ -42,9 +42,16 @@ namespace BLL
 
         public static bool Eliminar(Categoria categoria)
         {
-            using (var repositorio = new Repositorio<Categoria>())
+            using (var repositorioCategorias = new Repositorio<Categoria>())
             {
-                return repositorio.Eliminar(categoria);
+                using (var repositorioPresupuestos = new Repositorio<Presupuesto>())
+                {
+                    foreach (var presupuesto in repositorioPresupuestos.GetList(P => P.CategoriaId == categoria.CategoriaId))
+                    {
+                        repositorioPresupuestos.Eliminar(presupuesto);
+                    }
+                }
+                return repositorioCategorias.Eliminar(categoria);
             }
         }
 

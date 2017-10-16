@@ -63,17 +63,22 @@
 
         <form runat="server">
             <div class="col-xs-12 col-sm-4 d-inline-block">
-                <asp:DropDownList CssClass="form-control" ID="FiltrarDropDownList" runat="server">
+                <asp:DropDownList CssClass="form-control" ID="FiltrarDropDownList" runat="server" OnSelectedIndexChanged="FiltrarDropDownList_SelectedIndexChanged1">
                     <asp:ListItem>Todo</asp:ListItem>
                     <asp:ListItem>ID</asp:ListItem>
                     <asp:ListItem>Descripción</asp:ListItem>
+                    <asp:ListItem Text="Categoría" />
                 </asp:DropDownList>
             </div>
 
-            <div class="col-xs-12 col-sm-7 d-inline-block">
+            <div class="col-xs-12 col-sm-4 d-inline-block">
                 <div class="form-group">
                     <asp:TextBox CssClass="form-control" ID="FiltrarTextBox" runat="server" autocomplete="off"></asp:TextBox>
                 </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-3 d-inline-block">
+                <asp:DropDownList ID="CategoriaDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
             </div>
 
             <div class="col-xs-12 col-lg-2 d-inline-block">
@@ -161,17 +166,19 @@
                         <th class="bg-info">Fecha</th>
                         <th class="bg-info">Descripción</th>
                         <th class="bg-info">Monto</th>
+                        <th class="bg-info">Categoría</th>
                         <th class="bg-info"></th>
                         <th class="bg-info"><a class="btn btn-warning" href="../Reportes/ReportePresupuestos.aspx" id="ImprimirButton">Imprimir</a></th>
                     </tr>
 
                     <!--Resultado de la consulta-->                          
                     <tbody id="listaF">
-                        <% foreach (var presupuesto in Lista) %>
-                        <% { Response.Write("<tr class='fila'> <td>" + presupuesto.PresupuestoId + "</td> <td>" + presupuesto.Fecha.ToString().Substring(0,10) + "</td> <td>" + presupuesto.Descripcion + "</td> <td> RD$ " + presupuesto.Monto + "</td> <td> <button class='btn-modificar btn btn-sm btn-success' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</button> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
+                        <%foreach (var presupuesto in Lista) %>
+                        <% { Response.Write("<tr class='fila'> <td>" + presupuesto.PresupuestoId + "</td> <td>" + presupuesto.Fecha.ToString().Substring(0,10) + "</td> <td>" + presupuesto.Descripcion + "</td> <td> RD$ " + presupuesto.Monto + "</td> <td>" + BLL.CategoriaBLL.Buscar(C => C.CategoriaId == presupuesto.CategoriaId).Descripcion + "</td> <td> <button class='btn-modificar btn btn-sm btn-success' data-toggle='modal' data-target='#ModalConfirmacionModificar'>Modificar</button> </td> <td>  <button class='btn-eliminar btn btn-sm btn-danger' data-toggle='modal' data-target='#ModalConfirmacionEliminar'>Eliminar</button> </td> </tr>"); } %>
                     </tbody>
                        
                     <tr>
+                        <th class="bg-dark"></th>
                         <th class="bg-dark"></th>
                         <th class="bg-dark"></th>
                         <th class="bg-dark"></th>

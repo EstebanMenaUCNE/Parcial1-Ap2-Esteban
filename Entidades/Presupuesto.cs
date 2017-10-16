@@ -13,19 +13,21 @@ namespace Entidades
         public int PresupuestoId { get; set; }
         public DateTime Fecha { get; set; }
         public string Descripcion { get; set; }
-        public double Monto { get; set; }
+        public decimal Monto { get; set; }
+        public int CategoriaId { get; set; }
 
         public Presupuesto()
         {
 
         }
 
-        public Presupuesto(int presupuestoId, DateTime fecha, string descripcion, double monto)
+        public Presupuesto(int presupuestoId, DateTime fecha, string descripcion, decimal monto, int categoriaId)
         {
             PresupuestoId = presupuestoId;
             Fecha = fecha;
             Descripcion = descripcion;
             Monto = monto;
+            CategoriaId = categoriaId;
         }
 
     }

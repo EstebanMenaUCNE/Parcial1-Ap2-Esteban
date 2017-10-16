@@ -19,12 +19,23 @@ namespace Parcial1_Ap2_Esteban.UI.Registros
             AlertaGuardadoExito.Visible = false;
             AlertaError.Visible = false;
 
+            LlenarDropDownListCategorias();
+
             if (Consultas.ConsultaPresupuestos.PresupuestoSeleccionado != null)
             {
                 presupuesto = Consultas.ConsultaPresupuestos.PresupuestoSeleccionado;
+                Consultas.ConsultaPresupuestos.PresupuestoSeleccionado = null;
                 CargarDatos();
                 NuevoOModificando();
             }
+        }
+
+        private void LlenarDropDownListCategorias()
+        {
+            CategoriaIdDropDownList.DataSource = BLL.CategoriaBLL.GetList(P => P.CategoriaId > 0);
+            CategoriaIdDropDownList.DataValueField = "CategoriaId";
+            CategoriaIdDropDownList.DataTextField = "Descripcion";
+            CategoriaIdDropDownList.DataBind();
         }
 
         private void Limpiar()
@@ -49,6 +60,7 @@ namespace Parcial1_Ap2_Esteban.UI.Registros
             FechaTextBox.Text = presupuesto.Fecha.GetDateTimeFormats()[80].ToString().Substring(0, 10);
             DescripcionTextBox.Text = presupuesto.Descripcion;
             MontoTextBox.Text = presupuesto.Monto.ToString();
+            CategoriaIdDropDownList.SelectedValue = presupuesto.CategoriaId.ToString();
         }
 
         private void NuevoOModificando()
@@ -83,12 +95,14 @@ namespace Parcial1_Ap2_Esteban.UI.Registros
 
         private void LlenarCamposInstancia()
         {
+            string value = CategoriaIdDropDownList.SelectedValue;
+            int index = CategoriaIdDropDownList.SelectedIndex;
             int id = 0;
             if (PresupuestoIdTextBox.Text != "")
             {
                 id = Utilidad.ToInt(PresupuestoIdTextBox.Text);
             }
-            presupuesto = new Presupuesto(id, DateTime.Parse(FechaTextBox.Text), DescripcionTextBox.Text, Utilidad.ToDouble(MontoTextBox.Text));
+            presupuesto = new Presupuesto(id, DateTime.Parse(FechaTextBox.Text), DescripcionTextBox.Text, Utilidad.ToDecimal(MontoTextBox.Text), Utilidad.ToInt(CategoriaIdDropDownList.SelectedValue));
         }
 
         protected void GuardarButton_Click(object sender, EventArgs e)
@@ -99,16 +113,7 @@ namespace Parcial1_Ap2_Esteban.UI.Registros
                 if (PresupuestoBLL.Guardar(presupuesto))
                 {
                     PresupuestoIdTextBox.Text = presupuesto.PresupuestoId.ToString();
-
-                    if (Consultas.ConsultaPresupuestos.PresupuestoSeleccionado == null)
-                    {
-                        MensajeAlertaGuardadoExito.Text = "¡Guardado con éxito con el ID " + presupuesto.PresupuestoId + "!";
-                    }
-                    else
-                    {
-                        //Recordar: Probar si es necesario
-                        MensajeAlertaGuardadoExito.Text = "Repita los cambios realizados para modificar. Esto por la seguridad de los datos.";
-                    }
+                    MensajeAlertaGuardadoExito.Text = "¡Guardado con éxito con el ID " + presupuesto.PresupuestoId + "!";
                     AlertaGuardadoExito.Visible = true;
                     NuevoOModificando();
                     Consultas.ConsultaPresupuestos.PresupuestoSeleccionado = null;

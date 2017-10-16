@@ -14,6 +14,13 @@ namespace Parcial1_Ap2_Esteban
             return numero;
         }
 
+        public static decimal ToDecimal(string texto)
+        {
+            decimal numero = 0;
+            decimal.TryParse(texto, out numero);
+            return numero;
+        }
+
         public static double ToDouble(string texto)
         {
             double numero = 0;

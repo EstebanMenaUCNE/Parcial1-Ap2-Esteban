@@ -17,11 +17,12 @@ namespace Parcial1_Ap2_Esteban.UI.Registros
         {
             AlertaValidar.Visible = false;
             AlertaGuardadoExito.Visible = false;
-            AlertaError.Visible = false;
+            AlertaError.Visible = false;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 
             if (Consultas.ConsultaCategorias.CategoriaSeleccionada != null)
             {
                 categoria = Consultas.ConsultaCategorias.CategoriaSeleccionada;
+                Consultas.ConsultaCategorias.CategoriaSeleccionada = null;
                 CargarDatos();
                 NuevoOModificando();
             }

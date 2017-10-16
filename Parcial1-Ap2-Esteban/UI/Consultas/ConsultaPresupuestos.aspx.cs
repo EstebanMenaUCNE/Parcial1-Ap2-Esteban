@@ -19,13 +19,37 @@ namespace Parcial1_Ap2_Esteban.UI.Consultas
             PresupuestoSeleccionado = null;
             AlertaEliminadoExito.Visible = false;
             AlertaError.Visible = false;
+            LlenarDropDownListCategorias();
+            //MostrarOcultarEntradas();
         }
+
+        private void LlenarDropDownListCategorias()
+        {
+            CategoriaDropDownList.DataSource = BLL.CategoriaBLL.GetList(P => P.CategoriaId > 0);
+            CategoriaDropDownList.DataValueField = "CategoriaId";
+            CategoriaDropDownList.DataTextField = "Descripcion";
+            CategoriaDropDownList.DataBind();
+        }
+
+        //private void MostrarOcultarEntradas()
+        //{
+        //    if (FiltrarDropDownList.SelectedIndex == 3)
+        //    {
+        //        CategoriaDropDownList.Visible = true;
+        //        FiltrarTextBox.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        CategoriaDropDownList.Visible = false;
+        //        FiltrarTextBox.Visible = true;
+        //    }
+        //}
 
         private void Filtrar()
         {
             DateTime fechaDesde = Utilidad.ToDateTime(FechaDesdeTextBox.Text);
             DateTime fechaHasta = Utilidad.ToDateTime(FechaHastaTextBox.Text);
-            if (FiltrarDropDownList.Text == "ID")
+            if (FiltrarDropDownList.SelectedIndex == 1)
             {
                 int id = Utilidad.ToInt(FiltrarTextBox.Text);
                 if (FiltrarFechaCheckBox.Checked)
@@ -37,7 +61,7 @@ namespace Parcial1_Ap2_Esteban.UI.Consultas
                     Lista = BLL.PresupuestoBLL.GetList(P => P.PresupuestoId == id);
                 }
             }
-            else if (FiltrarDropDownList.Text == "Descripción")
+            else if (FiltrarDropDownList.SelectedIndex == 2)
             {
                 if (FiltrarFechaCheckBox.Checked)
                 {
@@ -46,6 +70,19 @@ namespace Parcial1_Ap2_Esteban.UI.Consultas
                 else
                 {
                     Lista = BLL.PresupuestoBLL.GetList(P => P.Descripcion == FiltrarTextBox.Text);
+                }
+
+            }
+            else if (FiltrarDropDownList.SelectedIndex == 3)
+            {
+                int categoriaId = Utilidad.ToInt(CategoriaDropDownList.SelectedValue);
+                if (FiltrarFechaCheckBox.Checked)
+                {
+                    Lista = BLL.PresupuestoBLL.GetList(P => P.CategoriaId == categoriaId && P.Fecha >= fechaDesde.Date && P.Fecha <= fechaHasta.Date);
+                }
+                else
+                {
+                    Lista = BLL.PresupuestoBLL.GetList(P => P.CategoriaId == categoriaId);
                 }
 
             }
@@ -64,7 +101,7 @@ namespace Parcial1_Ap2_Esteban.UI.Consultas
 
         protected void FiltrarFechaCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
@@ -85,7 +122,7 @@ namespace Parcial1_Ap2_Esteban.UI.Consultas
                 AlertaError.Visible = true;
             }
             PresupuestoSeleccionado = null;
-            
+
         }
 
         protected void ModificarButton_Click(object sender, EventArgs e)
@@ -93,6 +130,11 @@ namespace Parcial1_Ap2_Esteban.UI.Consultas
             int id = Utilidad.ToInt(FilaTextBox.Text);
             PresupuestoSeleccionado = BLL.PresupuestoBLL.Buscar(P => P.PresupuestoId == id);
             Response.Redirect("../Registros/RegistroPresupuestos.aspx");
+        }
+
+        protected void FiltrarDropDownList_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            //MostrarOcultarEntradas();
         }
     }
 }

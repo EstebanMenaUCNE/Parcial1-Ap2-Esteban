@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="UTF-8"/>
-    <meta lang="es-ES"/>
+    <meta charset="UTF-8" />
+    <meta lang="es-ES" />
     <title>Registro de presupuestos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!--Inclusión de Bootstrap 4.0.0 CDN-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -19,7 +19,7 @@
 <body>
     <header>
         <div class="jumbotron bg-success">
-            <h1 class="display-3" style="color:white;">Presupuestos</h1>
+            <h1 class="display-3" style="color: white;">Presupuestos</h1>
         </div>
     </header>
 
@@ -42,20 +42,20 @@
     </nav>
 
     <br />
-    <br /> 
-    
+    <br />
+
     <div class="fluid-container">
         <div class="col-xs-12 col-sm-4">
 
             <!--Alertas-->
             <div class="col-xs-12">
-                <asp:Panel id="AlertaGuardadoExito" class="alert alert-success text-center" role="alert" runat="server">
+                <asp:Panel ID="AlertaGuardadoExito" class="alert alert-success text-center" role="alert" runat="server">
                     <asp:Label ID="MensajeAlertaGuardadoExito" runat="server">¡Guardado con éxito!</asp:Label>
                 </asp:Panel>
-                <asp:Panel id="AlertaError" class="alert alert-danger text-center" role="alert" runat="server">
+                <asp:Panel ID="AlertaError" class="alert alert-danger text-center" role="alert" runat="server">
                     <asp:Label ID="MensajeAlertaError" runat="server">¡Algo salió mal!</asp:Label>
                 </asp:Panel>
-                <asp:Panel id="AlertaValidar" class="alert alert-info text-center" role="alert" runat="server">
+                <asp:Panel ID="AlertaValidar" class="alert alert-info text-center" role="alert" runat="server">
                     <asp:Label ID="MensajeAlertaValidar" runat="server">Por favor llene todos los campos correctamente...</asp:Label>
                 </asp:Panel>
             </div>
@@ -64,7 +64,8 @@
             <!--Formulario-->
             <form id="form" runat="server">
                 <div class="text-center">
-                    <h4><asp:Label CssClass="text-center" ID="NuevoOModificandoLabel" runat="server" Text="Nuevo presupuesto"></asp:Label></h4>
+                    <h4>
+                        <asp:Label CssClass="text-center" ID="NuevoOModificandoLabel" runat="server" Text="Nuevo presupuesto"></asp:Label></h4>
                 </div>
                 <asp:Button CssClass="btn btn-success float-right" ID="NuevoButton" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" />
                 <br />
@@ -85,6 +86,12 @@
                     <label for="MontoTextBox">Monto</label>
                     <asp:TextBox CssClass="form-control" ID="MontoTextBox" runat="server"></asp:TextBox>
                 </div>
+                <div class="form-group">
+                    <label for="CategoriaIdDropDownList">Categoría</label>
+                    <asp:DropDownList CssClass="form-control" ID="CategoriaIdDropDownList" runat="server">
+                    </asp:DropDownList>
+                </div>
+
                 <br />
                 <div class="text-center">
                     <asp:Button CssClass="btn btn-success" ID="GuardarButton" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
@@ -97,8 +104,8 @@
     <br />
 
     <footer class="bg-success">
-        <p class="text-center" style="color:white;">Esteban Mena - 2014-0563 - Primer parcial</p>
+        <p class="text-center" style="color: white;">Esteban Mena - 2014-0563 - Primer parcial</p>
     </footer>
-    
+
 </body>
 </html>
